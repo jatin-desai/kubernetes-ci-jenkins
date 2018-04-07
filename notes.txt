@@ -1,9 +1,8 @@
-kubectl apply -f jenkins.yml
-kubectl rollout status deployment/jenkins
+kubectl create namespace platform; kubectl apply -f jenkins.yml; kubectl rollout status deployment/jenkins -n=platform
 
 minikube service jenkins
 
-kubectl exec -it `kubectl get pods --selector=app=jenkins --output=jsonpath={.items..metadata.name}` cat /root/.jenkins/secrets/initialAdminPassword
+kubectl exec -it `kubectl get pods --selector=app=jenkins --output=jsonpath={.items..metadata.name}` cat /var/jenkins_home/secrets/initialAdminPassword
 
 
 mkdir /Users/43174502/jenkins_home

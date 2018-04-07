@@ -77,7 +77,7 @@ spec:
         tier: jenkins
     spec:
       containers:
-      - image: jenkins:2.60.3 # chadmoon/jenkins-docker-kubectl:latest # jenkins:2.60.3-alpine
+      - image: jatindesai/jenkins:lts-alpine
         name: jenkins
         securityContext:
           privileged: true
