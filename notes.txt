@@ -1,0 +1,24 @@
+kubectl apply -f jenkins.yml
+kubectl rollout status deployment/jenkins
+
+minikube service jenkins
+
+kubectl exec -it `kubectl get pods --selector=app=jenkins --output=jsonpath={.items..metadata.name}` cat /root/.jenkins/secrets/initialAdminPassword
+
+
+mkdir /Users/43174502/jenkins_home
+docker run -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock  -v $(which docker):/usr/bin/docker -v /Users/jadeStone/sandbox/kube/kubernetes_developer_env/service-platform-toolkit/utils/jenkins_home:/var/jenkins_home jenkins/jenkins:lts-alpine
+
+curl 'http://localhost:8080/pluginManager/api/xml?depth=1&xpath=/*/*/shortName|/*/*/version&wrapper=plugins' | perl -pe 's/.*?<shortName>([\w-]+).*?<version>([^<]+)()(<\/\w+>)+/\1 \2\n/g'
+
+-d
+
+https://github.com/jenkinsci/docker/blob/master/README.md
+
+https://wiki.jenkins.io/display/JENKINS/Offline+Jenkins+Installation
+
+
+Plugins :
+https://wiki.jenkins.io/display/JENKINS/Docker+build+step+plugin
+https://wiki.jenkins.io/display/JENKINS/Kubernetes+CLI+Plugin
+https://wiki.jenkins.io/display/JENKINS/Kubernetes+Continuous+Deploy+Plugin
