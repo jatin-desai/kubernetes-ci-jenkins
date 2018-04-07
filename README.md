@@ -9,7 +9,7 @@ cat /Users/shared/sandbox/jenkins_home/secrets/initialAdminPassword
 
 Option 2: Deploy to Kubernetes cluster
 ```
-kubectl create namespace platform; kubectl apply -f jenkins.yml; kubectl rollout status deployment/jenkins -n=platform
+kubectl create namespace kube-ci; kubectl apply -f jenkins.yml; kubectl rollout status deployment/jenkins -n=kube-ci
 
 kubectl exec -it `kubectl get pods --selector=app=jenkins --output=jsonpath={.items..metadata.name}` cat /var/jenkins_home/secrets/initialAdminPassword
 
