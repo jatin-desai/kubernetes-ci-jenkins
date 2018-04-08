@@ -3,3 +3,4 @@ kubernetes-pipeline-steps:1.5
 kubernetes-credentials:0.3.1
 kubernetes-cd:0.2.0
 kubernetes-cli:1.0.0
+azure-commons:0.2.5

@@ -21,3 +21,7 @@ Plugins :
 https://wiki.jenkins.io/display/JENKINS/Docker+build+step+plugin
 https://wiki.jenkins.io/display/JENKINS/Kubernetes+CLI+Plugin
 https://wiki.jenkins.io/display/JENKINS/Kubernetes+Continuous+Deploy+Plugin
+
+
+docker tool for jenkins - https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz
+maven tool for jenkins - https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.5.3/apache-maven-3.5.3-bin.zip
