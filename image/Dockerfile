@@ -11,11 +11,12 @@ RUN apk update \
       && apk add sudo curl \
       && rm -rf /var/lib/apt/lists/*
 RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
+RUN addgroup -S docker
+RUN adduser jenkins docker
 
-
-RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.10.0/bin/bin/linux/amd64/kubectl && chmod +x kubectl && mv kubectl /usr/local/bin/
-# COPY ./kubectl /usr/local/bin/
-# RUN chmod +x /usr/local/bin/kubectl
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.10.0/bin/linux/amd64/kubectl
+RUN chmod +x kubectl
+RUN mv ./kubectl /usr/local/bin
 
 USER jenkins
 COPY plugins1.txt /usr/share/jenkins/plugins1.txt
