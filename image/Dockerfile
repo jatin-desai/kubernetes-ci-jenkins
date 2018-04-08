@@ -18,5 +18,14 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.10.0/b
 # RUN chmod +x /usr/local/bin/kubectl
 
 USER jenkins
-COPY plugins.txt /usr/share/jenkins/plugins.txt
-RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
+COPY plugins1.txt /usr/share/jenkins/plugins1.txt
+COPY plugins2.txt /usr/share/jenkins/plugins2.txt
+COPY plugins3.txt /usr/share/jenkins/plugins3.txt
+COPY plugins4.txt /usr/share/jenkins/plugins4.txt
+COPY plugins5.txt /usr/share/jenkins/plugins5.txt
+
+RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins1.txt
+RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins2.txt
+RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins3.txt
+RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins4.txt
+RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins5.txt
